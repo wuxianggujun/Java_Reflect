@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hjq.logcat">
+
+    <!-- 外部存储读写权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application>
+
+        <provider
+            android:name=".InitProvider"
+            android:authorities="${applicationId}.log.provider"
+            android:exported="false"
+            android:initOrder="110" />
+
+        <activity
+            android:name=".LogcatActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleInstance"
+            android:screenOrientation="landscape" />
+
+    </application>
+
+</manifest>
